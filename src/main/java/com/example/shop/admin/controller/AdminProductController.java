@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,6 +18,11 @@ public class AdminProductController {
     @GetMapping("/admin/products")
     public Page<AdminProduct> getProducts(Pageable pageable) {
         return adminProductService.getProducts(pageable);
+    }
+
+    @GetMapping("/admin/product/{id}")
+    public AdminProduct getProduct(@PathVariable Long id) {
+        return adminProductService.getProduct(id);
     }
 
 }

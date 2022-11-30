@@ -17,4 +17,7 @@ public class AdminProductService {
         return adminProductRepository.findAll(pageable);
     }
 
+    public AdminProduct getProduct(Long id) {
+        return adminProductRepository.findById(id).orElseThrow();
+    }
 }
