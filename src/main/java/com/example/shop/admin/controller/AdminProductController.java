@@ -3,6 +3,7 @@ package com.example.shop.admin.controller;
 import com.example.shop.admin.controller.dto.AdminProductDto;
 import com.example.shop.admin.model.AdminProduct;
 import com.example.shop.admin.service.AdminProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,7 +26,7 @@ public class AdminProductController {
     }
 
     @PostMapping("/admin/product")
-    public AdminProduct createProduct(@RequestBody AdminProductDto adminProductDto) {
+    public AdminProduct createProduct(@RequestBody @Valid  AdminProductDto adminProductDto) {
         return adminProductService.createProduct(AdminProduct.builder()
                 .name(adminProductDto.getName())
                 .description(adminProductDto.getDescription())
@@ -37,7 +38,7 @@ public class AdminProductController {
     }
 
     @PutMapping("/admin/product/{id}")
-    public AdminProduct updateProduct(@RequestBody AdminProductDto adminProductDto, @PathVariable Long id) {
+    public AdminProduct updateProduct(@RequestBody @Valid  AdminProductDto adminProductDto, @PathVariable Long id) {
         return adminProductService.updateProduct(AdminProduct.builder()
                 .id(id)
                 .name(adminProductDto.getName())
