@@ -1,13 +1,12 @@
 package com.example.shop.admin.controller;
 
+import com.example.shop.admin.controller.dto.AdminProductDto;
 import com.example.shop.admin.model.AdminProduct;
 import com.example.shop.admin.service.AdminProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,6 +22,31 @@ public class AdminProductController {
     @GetMapping("/admin/product/{id}")
     public AdminProduct getProduct(@PathVariable Long id) {
         return adminProductService.getProduct(id);
+    }
+
+    @PostMapping("/admin/product")
+    public AdminProduct createProduct(@RequestBody AdminProductDto adminProductDto) {
+        return adminProductService.createProduct(AdminProduct.builder()
+                .name(adminProductDto.getName())
+                .description(adminProductDto.getDescription())
+                .category(adminProductDto.getCategory())
+                .price(adminProductDto.getPrice())
+                .currency(adminProductDto.getCurrency())
+                .build()
+        );
+    }
+
+    @PutMapping("/admin/product/{id}")
+    public AdminProduct updateProduct(@RequestBody AdminProductDto adminProductDto, @PathVariable Long id) {
+        return adminProductService.updateProduct(AdminProduct.builder()
+                .id(id)
+                .name(adminProductDto.getName())
+                .description(adminProductDto.getDescription())
+                .category(adminProductDto.getCategory())
+                .price(adminProductDto.getPrice())
+                .currency(adminProductDto.getCurrency())
+                .build()
+        );
     }
 
 }
