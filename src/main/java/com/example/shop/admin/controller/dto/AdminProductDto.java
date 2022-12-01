@@ -1,5 +1,6 @@
 package com.example.shop.admin.controller.dto;
 
+import com.example.shop.admin.model.AdminProducrCurrency;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -15,9 +16,8 @@ public class AdminProductDto {
     @NotBlank
     private String description;
     @NotBlank
-    private BigDecimal price;
-    @NotBlank
     @Min(0)
-    private String currency;
+    private BigDecimal price;
+    private AdminProducrCurrency currency;
 
 }

@@ -32,7 +32,7 @@ public class AdminProductController {
                 .description(adminProductDto.getDescription())
                 .category(adminProductDto.getCategory())
                 .price(adminProductDto.getPrice())
-                .currency(adminProductDto.getCurrency())
+                .currency(String.valueOf(adminProductDto.getCurrency()))
                 .build()
         );
     }
@@ -45,7 +45,7 @@ public class AdminProductController {
                 .description(adminProductDto.getDescription())
                 .category(adminProductDto.getCategory())
                 .price(adminProductDto.getPrice())
-                .currency(adminProductDto.getCurrency())
+                .currency(String.valueOf(adminProductDto.getCurrency()))
                 .build()
         );
     }
