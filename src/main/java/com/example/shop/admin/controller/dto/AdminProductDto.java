@@ -19,5 +19,4 @@ public class AdminProductDto {
     @Min(0)
     private BigDecimal price;
     private AdminProducrCurrency currency;
-
 }

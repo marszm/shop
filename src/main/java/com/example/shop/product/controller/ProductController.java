@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class ProductController {
-
     private final ProductService productService;
 
     @GetMapping("/products")
     public Page<Product> getProducts(Pageable pageable) {
         return productService.getProducts(pageable);
     }
-
 }

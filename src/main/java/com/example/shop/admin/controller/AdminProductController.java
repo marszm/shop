@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 public class AdminProductController {
-
     private final AdminProductService adminProductService;
 
     @GetMapping("/admin/products")
@@ -26,7 +25,7 @@ public class AdminProductController {
     }
 
     @PostMapping("/admin/product")
-    public AdminProduct createProduct(@RequestBody @Valid  AdminProductDto adminProductDto) {
+    public AdminProduct createProduct(@RequestBody @Valid AdminProductDto adminProductDto) {
         return adminProductService.createProduct(AdminProduct.builder()
                 .name(adminProductDto.getName())
                 .description(adminProductDto.getDescription())
@@ -38,7 +37,7 @@ public class AdminProductController {
     }
 
     @PutMapping("/admin/product/{id}")
-    public AdminProduct updateProduct(@RequestBody @Valid  AdminProductDto adminProductDto, @PathVariable Long id) {
+    public AdminProduct updateProduct(@RequestBody @Valid AdminProductDto adminProductDto, @PathVariable Long id) {
         return adminProductService.updateProduct(AdminProduct.builder()
                 .id(id)
                 .name(adminProductDto.getName())
@@ -50,4 +49,8 @@ public class AdminProductController {
         );
     }
 
+    @DeleteMapping("/admin/product/{id}")
+    public void deleteProduct(@PathVariable Long id) {
+        adminProductService.deleteProduct(id);
+    }
 }
