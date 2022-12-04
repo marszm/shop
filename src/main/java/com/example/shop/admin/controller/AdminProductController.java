@@ -32,6 +32,7 @@ public class AdminProductController {
                 .category(adminProductDto.getCategory())
                 .price(adminProductDto.getPrice())
                 .currency(String.valueOf(adminProductDto.getCurrency()))
+                .image(adminProductDto.getImage())
                 .build()
         );
     }
@@ -45,6 +46,7 @@ public class AdminProductController {
                 .category(adminProductDto.getCategory())
                 .price(adminProductDto.getPrice())
                 .currency(String.valueOf(adminProductDto.getCurrency()))
+                .image(adminProductDto.getImage())
                 .build()
         );
     }

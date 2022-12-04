@@ -1,6 +1,8 @@
 package com.example.shop.admin.controller.dto;
 
 import com.example.shop.admin.model.AdminProducrCurrency;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -18,5 +20,7 @@ public class AdminProductDto {
     @NotBlank
     @Min(0)
     private BigDecimal price;
+    @Enumerated(EnumType.STRING)
     private AdminProducrCurrency currency;
+    private String image;
 }
