@@ -35,29 +35,12 @@ public class AdminProductController {
 
     @PostMapping("/admin/product")
     public AdminProduct createProduct(@RequestBody @Valid AdminProductDto adminProductDto) {
-        return adminProductService.createProduct(AdminProduct.builder()
-                .name(adminProductDto.getName())
-                .description(adminProductDto.getDescription())
-                .category(adminProductDto.getCategory())
-                .price(adminProductDto.getPrice())
-                .currency(String.valueOf(adminProductDto.getCurrency()))
-                .image(adminProductDto.getImage())
-                .build()
-        );
+        return adminProductService.createProduct(AdminProduct.builder().name(adminProductDto.getName()).description(adminProductDto.getDescription()).category(adminProductDto.getCategory()).price(adminProductDto.getPrice()).currency(String.valueOf(adminProductDto.getCurrency())).image(adminProductDto.getImage()).build());
     }
 
     @PutMapping("/admin/product/{id}")
     public AdminProduct updateProduct(@RequestBody @Valid AdminProductDto adminProductDto, @PathVariable Long id) {
-        return adminProductService.updateProduct(AdminProduct.builder()
-                .id(id)
-                .name(adminProductDto.getName())
-                .description(adminProductDto.getDescription())
-                .category(adminProductDto.getCategory())
-                .price(adminProductDto.getPrice())
-                .currency(String.valueOf(adminProductDto.getCurrency()))
-                .image(adminProductDto.getImage())
-                .build()
-        );
+        return adminProductService.updateProduct(AdminProduct.builder().id(id).name(adminProductDto.getName()).description(adminProductDto.getDescription()).category(adminProductDto.getCategory()).price(adminProductDto.getPrice()).currency(String.valueOf(adminProductDto.getCurrency())).image(adminProductDto.getImage()).build());
     }
 
     @DeleteMapping("/admin/product/{id}")
