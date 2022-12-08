@@ -3,10 +3,10 @@ package com.example.shop.admin.controller;
 import com.example.shop.admin.controller.dto.AdminProductDto;
 import com.example.shop.admin.controller.dto.UploadResponse;
 import com.example.shop.admin.model.AdminProduct;
+import com.example.shop.admin.service.AdminProductImageService;
 import com.example.shop.admin.service.AdminProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.io.FileSystemResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,15 +17,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @RestController
 @RequiredArgsConstructor
 public class AdminProductController {
     private final AdminProductService adminProductService;
+    private final AdminProductImageService adminProductImageService;
 
     @GetMapping("/admin/products")
     public Page<AdminProduct> getProducts(Pageable pageable) {
@@ -69,23 +68,17 @@ public class AdminProductController {
 
     @PostMapping("admin/products/upload-image")
     public UploadResponse uploadImage(@RequestParam("file") MultipartFile multipartFile) {
-        String filename = multipartFile.getOriginalFilename();
-        String uploadDir = "./data/productImages/";
-        Path filePath = Paths.get(uploadDir).resolve(filename);
         try (InputStream inputStream = multipartFile.getInputStream()) {
-            OutputStream outputStream = Files.newOutputStream(filePath);
-            inputStream.transferTo(outputStream);
-            return new UploadResponse(filename);
+            String savedFile = adminProductImageService.uploadImage(multipartFile.getOriginalFilename(), inputStream);
+            return new UploadResponse(savedFile);
         } catch (IOException e) {
-            throw new RuntimeException("Can not save file!!!", e);
+            throw new RuntimeException("Smth went wrong during file loading ;(", e);
         }
     }
 
     @GetMapping("/data/productImages/{filename}")
     public ResponseEntity<Resource> serveFiles(@PathVariable String filename) throws IOException {
-        String uploadDir = "./data/productImages/";
-        FileSystemResourceLoader fileSystemResourceLoader = new FileSystemResourceLoader();
-        Resource resource = fileSystemResourceLoader.getResource(uploadDir + filename);
+        Resource resource = adminProductImageService.serveFiles(filename);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_TYPE, Files.probeContentType(Path.of(filename)))
                 .body(resource);
