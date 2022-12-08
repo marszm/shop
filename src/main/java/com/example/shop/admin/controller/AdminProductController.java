@@ -6,8 +6,12 @@ import com.example.shop.admin.model.AdminProduct;
 import com.example.shop.admin.service.AdminProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.FileSystemResourceLoader;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,12 +39,27 @@ public class AdminProductController {
 
     @PostMapping("/admin/product")
     public AdminProduct createProduct(@RequestBody @Valid AdminProductDto adminProductDto) {
-        return adminProductService.createProduct(AdminProduct.builder().name(adminProductDto.getName()).description(adminProductDto.getDescription()).category(adminProductDto.getCategory()).price(adminProductDto.getPrice()).currency(String.valueOf(adminProductDto.getCurrency())).image(adminProductDto.getImage()).build());
+        return adminProductService.createProduct(AdminProduct.builder()
+                .name(adminProductDto.getName())
+                .description(adminProductDto.getDescription())
+                .category(adminProductDto.getCategory())
+                .price(adminProductDto.getPrice())
+                .currency(String.valueOf(adminProductDto.getCurrency()))
+                .image(adminProductDto.getImage())
+                .build());
     }
 
     @PutMapping("/admin/product/{id}")
     public AdminProduct updateProduct(@RequestBody @Valid AdminProductDto adminProductDto, @PathVariable Long id) {
-        return adminProductService.updateProduct(AdminProduct.builder().id(id).name(adminProductDto.getName()).description(adminProductDto.getDescription()).category(adminProductDto.getCategory()).price(adminProductDto.getPrice()).currency(String.valueOf(adminProductDto.getCurrency())).image(adminProductDto.getImage()).build());
+        return adminProductService.updateProduct(AdminProduct.builder()
+                .id(id)
+                .name(adminProductDto.getName())
+                .description(adminProductDto.getDescription())
+                .category(adminProductDto.getCategory())
+                .price(adminProductDto.getPrice())
+                .currency(String.valueOf(adminProductDto.getCurrency()))
+                .image(adminProductDto.getImage())
+                .build());
     }
 
     @DeleteMapping("/admin/product/{id}")
@@ -62,4 +81,13 @@ public class AdminProductController {
         }
     }
 
+    @GetMapping("/data/productImages/{filename}")
+    public ResponseEntity<Resource> serveFiles(@PathVariable String filename) throws IOException {
+        String uploadDir = "./data/productImages/";
+        FileSystemResourceLoader fileSystemResourceLoader = new FileSystemResourceLoader();
+        Resource resource = fileSystemResourceLoader.getResource(uploadDir + filename);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_TYPE, Files.probeContentType(Path.of(filename)))
+                .body(resource);
+    }
 }
