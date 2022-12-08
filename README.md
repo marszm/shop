@@ -1,1 +1,2 @@
-# shop
+# Simple backend service for shop application with  CRUD operations written in Java 17, Spring Boot 3 and Spring 6 framework connected to MySQL database.
+# Documentation endpoint: http://localhost:8080/swagger-ui/index.html#
