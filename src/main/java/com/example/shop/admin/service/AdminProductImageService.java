@@ -20,6 +20,7 @@ public class AdminProductImageService {
 
     public String uploadImage(String filename, InputStream inputStream) {
         String newFileName = UploadFilesNameUtils.slugifyFilename(filename);
+        newFileName = ExistingFileRenameUtils.renameIfExist(Path.of(uploadDir), newFileName);
         Path filePath = Paths.get(uploadDir).resolve(newFileName);
         try (OutputStream outputStream = Files.newOutputStream(filePath);) {
             inputStream.transferTo(outputStream);
