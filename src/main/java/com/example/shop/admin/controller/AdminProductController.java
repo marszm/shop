@@ -50,12 +50,6 @@ public class AdminProductController {
                 .build());
     }
 
-    private String slugifySlug(String slug) {
-        Slugify slugify = new Slugify();
-        return slugify.withCustomReplacement("_", "-")
-                .slugify(slug);
-    }
-
     @PutMapping("/admin/product/{id}")
     public AdminProduct updateProduct(@RequestBody @Valid AdminProductDto adminProductDto, @PathVariable Long id) {
         return adminProductService.updateProduct(AdminProduct.builder()
@@ -91,5 +85,11 @@ public class AdminProductController {
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_TYPE, Files.probeContentType(Path.of(filename)))
                 .body(resource);
+    }
+
+    private String slugifySlug(String slug) {
+        Slugify slugify = new Slugify();
+        return slugify.withCustomReplacement("_", "-")
+                .slugify(slug);
     }
 }
