@@ -23,7 +23,6 @@ public class ProductController {
         return productService.getProducts(pageable);
     }
 
-
     @GetMapping("/products/{slug}")
     public Product getProductBySlug(
             @PathVariable

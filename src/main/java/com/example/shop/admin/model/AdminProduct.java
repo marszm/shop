@@ -26,4 +26,5 @@ public class AdminProduct {
     private String currency;
     private String image;
     private String slug;
+
 }
