@@ -25,5 +25,5 @@ public class AdminProduct {
     private BigDecimal price;
     private String currency;
     private String image;
-
+    private String slug;
 }

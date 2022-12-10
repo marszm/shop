@@ -5,6 +5,7 @@ import com.example.shop.admin.controller.dto.UploadResponse;
 import com.example.shop.admin.model.AdminProduct;
 import com.example.shop.admin.service.AdminProductImageService;
 import com.example.shop.admin.service.AdminProductService;
+import com.github.slugify.Slugify;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
@@ -45,7 +46,14 @@ public class AdminProductController {
                 .price(adminProductDto.getPrice())
                 .currency(String.valueOf(adminProductDto.getCurrency()))
                 .image(adminProductDto.getImage())
+                .slug(slugifySlug(adminProductDto.getSlug()))
                 .build());
+    }
+
+    private String slugifySlug(String slug) {
+        Slugify slugify = new Slugify();
+        return slugify.withCustomReplacement("_", "-")
+                .slugify(slug);
     }
 
     @PutMapping("/admin/product/{id}")
@@ -58,6 +66,7 @@ public class AdminProductController {
                 .price(adminProductDto.getPrice())
                 .currency(String.valueOf(adminProductDto.getCurrency()))
                 .image(adminProductDto.getImage())
+                .slug(slugifySlug(adminProductDto.getSlug()))
                 .build());
     }
 
