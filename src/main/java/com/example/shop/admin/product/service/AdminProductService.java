@@ -1,7 +1,7 @@
-package com.example.shop.admin.service;
+package com.example.shop.admin.product.service;
 
-import com.example.shop.admin.model.AdminProduct;
-import com.example.shop.admin.repository.AdminProductRepository;
+import com.example.shop.admin.product.repository.AdminProductRepository;
+import com.example.shop.product.model.AdminProduct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

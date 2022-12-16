@@ -1,4 +1,4 @@
-package com.example.shop.admin.service;
+package com.example.shop.admin.product.service;
 
 import org.apache.commons.io.FilenameUtils;
 

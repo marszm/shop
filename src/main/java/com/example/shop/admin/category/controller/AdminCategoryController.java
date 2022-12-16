@@ -1,9 +1,9 @@
-package com.example.shop.category.controller;
+package com.example.shop.admin.category.controller;
 
-import com.example.shop.category.controller.dto.AdminCategoryDto;
-import com.example.shop.category.model.AdminCategory;
-import com.example.shop.category.reoisitory.AdminCategoryReoisitory;
-import com.example.shop.category.service.AdminCategoryService;
+import com.example.shop.admin.category.controller.dto.AdminCategoryDto;
+import com.example.shop.admin.category.model.AdminCategory;
+import com.example.shop.admin.category.repository.AdminCategoryReoisitory;
+import com.example.shop.admin.category.service.AdminCategoryService;
 import com.github.slugify.Slugify;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

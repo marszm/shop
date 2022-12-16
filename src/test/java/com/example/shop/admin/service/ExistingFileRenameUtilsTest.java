@@ -1,5 +1,6 @@
 package com.example.shop.admin.service;
 
+import com.example.shop.admin.product.service.ExistingFileRenameUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 

@@ -1,5 +1,6 @@
 package com.example.shop.admin.service;
 
+import com.example.shop.admin.product.service.UploadFilesNameUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

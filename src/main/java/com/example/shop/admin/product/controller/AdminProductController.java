@@ -1,10 +1,10 @@
-package com.example.shop.admin.controller;
+package com.example.shop.admin.product.controller;
 
-import com.example.shop.admin.controller.dto.AdminProductDto;
-import com.example.shop.admin.controller.dto.UploadResponse;
-import com.example.shop.admin.model.AdminProduct;
-import com.example.shop.admin.service.AdminProductImageService;
-import com.example.shop.admin.service.AdminProductService;
+import com.example.shop.admin.product.dto.AdminProductDto;
+import com.example.shop.admin.product.dto.UploadResponse;
+import com.example.shop.admin.product.service.AdminProductImageService;
+import com.example.shop.product.model.AdminProduct;
+import com.example.shop.admin.product.service.AdminProductService;
 import com.github.slugify.Slugify;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.example.shop.category.model;
+package com.example.shop.admin.category.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

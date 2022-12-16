@@ -1,4 +1,4 @@
-package com.example.shop.category.controller.dto;
+package com.example.shop.admin.category.controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

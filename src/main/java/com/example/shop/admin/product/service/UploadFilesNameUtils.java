@@ -1,4 +1,4 @@
-package com.example.shop.admin.service;
+package com.example.shop.admin.product.service;
 
 import com.github.slugify.Slugify;
 import org.apache.commons.io.FilenameUtils;

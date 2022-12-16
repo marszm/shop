@@ -1,7 +1,7 @@
-package com.example.shop.category.service;
+package com.example.shop.admin.category.service;
 
-import com.example.shop.category.model.AdminCategory;
-import com.example.shop.category.reoisitory.AdminCategoryReoisitory;
+import com.example.shop.admin.category.model.AdminCategory;
+import com.example.shop.admin.category.repository.AdminCategoryReoisitory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

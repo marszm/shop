@@ -1,4 +1,4 @@
-package com.example.shop.admin.controller.dto;
+package com.example.shop.admin.product.dto;
 
 public record UploadResponse(String filename) {
 }
