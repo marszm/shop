@@ -20,12 +20,11 @@ public class AdminProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String category;
+    private String categoryId;
     private String description;
     private String fullDescription;
     private BigDecimal price;
     private String currency;
     private String image;
     private String slug;
-
 }

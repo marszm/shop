@@ -31,5 +31,4 @@ public class ProductController {
             String slug) {
         return productService.getProductBySlug(slug);
     }
-
 }
