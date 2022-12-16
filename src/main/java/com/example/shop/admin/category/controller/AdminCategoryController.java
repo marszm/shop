@@ -1,6 +1,6 @@
 package com.example.shop.admin.category.controller;
 
-import com.example.shop.admin.category.controller.dto.AdminCategoryDto;
+import com.example.shop.admin.category.dto.AdminCategoryDto;
 import com.example.shop.admin.category.model.AdminCategory;
 import com.example.shop.admin.category.repository.AdminCategoryReoisitory;
 import com.example.shop.admin.category.service.AdminCategoryService;
