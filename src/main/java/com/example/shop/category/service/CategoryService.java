@@ -2,7 +2,6 @@ package com.example.shop.category.service;
 
 import com.example.shop.category.model.Category;
 import com.example.shop.category.repository.CategoryRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
