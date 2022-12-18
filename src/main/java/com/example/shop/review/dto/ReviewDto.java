@@ -1,4 +1,6 @@
 package com.example.shop.review.dto;
 
-public record ReviewDto(String authorName, String content, Long productId) {
+import org.hibernate.validator.constraints.Length;
+
+public record ReviewDto(@Length(min = 2, max = 30) String authorName, @Length(min = 2, max = 700) String content, Long productId) {
 }
