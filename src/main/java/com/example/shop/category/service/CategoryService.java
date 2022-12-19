@@ -39,7 +39,8 @@ public class CategoryService {
                         .currency(product.getCurrency())
                         .image(product.getImage())
                         .slug(product.getSlug())
-                        .build()).toList();
+                        .build()).
+                toList();
         return new CategoryproductsDto(category, new PageImpl<>(productListDtos, (Pageable) page, page.getTotalElements()));
     }
 }
