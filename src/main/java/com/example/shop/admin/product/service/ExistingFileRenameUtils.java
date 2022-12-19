@@ -11,10 +11,10 @@ public class ExistingFileRenameUtils {
         if (Files.exists(uploadDir.resolve(fileName))) {
             return renameAndCheck(uploadDir, fileName);
         }
-        return fileName ;
+        return fileName;
     }
 
-    public static String renameAndCheck(Path uploadDir, String fileName) {
+    static String renameAndCheck(Path uploadDir, String fileName) {
         String newName = renameFileName(fileName);
         if (Files.exists(uploadDir.resolve(newName))) {
             newName = renameAndCheck(uploadDir, newName);
@@ -22,7 +22,7 @@ public class ExistingFileRenameUtils {
         return newName;
     }
 
-    private static String renameFileName(String fileName) {
+    static String renameFileName(String fileName) {
         String name = FilenameUtils.getBaseName(fileName);
         String[] split = name.split("-(?=[0-9]+$)");
         int counter = split.length > 1 ? Integer.parseInt(split[1]) + 1 : 1;
