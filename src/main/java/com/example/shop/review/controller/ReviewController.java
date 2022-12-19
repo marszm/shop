@@ -17,7 +17,7 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
-    @PostMapping("/Rewiev")
+    @PostMapping("/rewiev")
     public Review addReview(@RequestBody @Valid  ReviewDto reviewDto) {
         return reviewService.addReview(Review.builder()
                 .authorName(cleanContent(reviewDto.authorName()))
