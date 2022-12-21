@@ -3,9 +3,8 @@ package com.example.shop.admin.product.controller;
 import com.example.shop.admin.product.dto.AdminProductDto;
 import com.example.shop.admin.product.dto.UploadResponse;
 import com.example.shop.admin.product.service.AdminProductImageService;
-import com.example.shop.product.model.AdminProduct;
 import com.example.shop.admin.product.service.AdminProductService;
-import com.github.slugify.Slugify;
+import com.example.shop.product.model.AdminProduct;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
@@ -20,6 +19,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
+import static com.example.shop.admin.common.utils.SlugifyUtils.slugifySlug;
 
 @RestController
 @RequiredArgsConstructor
@@ -87,11 +88,5 @@ public class AdminProductController {
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_TYPE, Files.probeContentType(Path.of(filename)))
                 .body(resource);
-    }
-
-    private String slugifySlug(String slug) {
-        Slugify slugify = new Slugify();
-        return slugify.withCustomReplacement("_", "-")
-                .slugify(slug);
     }
 }

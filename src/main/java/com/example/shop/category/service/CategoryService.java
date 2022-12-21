@@ -1,11 +1,11 @@
 package com.example.shop.category.service;
 
-import com.example.shop.category.model.Category;
-import com.example.shop.category.model.CategoryproductsDto;
+import com.example.shop.common.model.Category;
+import com.example.shop.category.dto.CategoryproductsDto;
 import com.example.shop.category.repository.CategoryRepository;
-import com.example.shop.product.dto.ProductListDto;
-import com.example.shop.product.model.Product;
-import com.example.shop.product.repository.ProductRepository;
+import com.example.shop.common.dto.ProductListDto;
+import com.example.shop.common.model.Product;
+import com.example.shop.common.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

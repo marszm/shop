@@ -1,11 +1,10 @@
-package com.example.shop.admin.service;
+package com.example.shop.admin.common.utils;
 
-import com.example.shop.admin.product.service.UploadFilesNameUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class UploadFilesNameUtilsTest {
+class SlugifyUtilsTest {
 
     @ParameterizedTest
     @CsvSource({
@@ -18,7 +17,7 @@ class UploadFilesNameUtilsTest {
             "Produkt__1.png, produkt-1.png"
     })
     void shouldSlugifyFileName(String input, String output) {
-        String filename = UploadFilesNameUtils.slugifyFilename(input);
+        String filename = SlugifyUtils.slugifyFilename(input);
         Assertions.assertEquals(filename, output);
     }
 

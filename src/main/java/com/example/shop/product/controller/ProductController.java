@@ -1,7 +1,7 @@
 package com.example.shop.product.controller;
 
-import com.example.shop.product.dto.ProductListDto;
-import com.example.shop.product.model.Product;
+import com.example.shop.common.dto.ProductListDto;
+import com.example.shop.common.model.Product;
 import com.example.shop.product.service.ProductService;
 import com.example.shop.product.service.dto.ProductDto;
 import jakarta.validation.constraints.Pattern;

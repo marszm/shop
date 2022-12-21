@@ -1,11 +1,11 @@
 package com.example.shop.product.service;
 
 import com.example.shop.common.repository.ReviewRepository;
-import com.example.shop.product.model.Product;
-import com.example.shop.product.repository.ProductRepository;
+import com.example.shop.common.model.Product;
+import com.example.shop.common.repository.ProductRepository;
 import com.example.shop.product.service.dto.ProductDto;
 import com.example.shop.product.service.dto.ReviewDto;
-import com.example.shop.review.model.Review;
+import com.example.shop.common.model.Review;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

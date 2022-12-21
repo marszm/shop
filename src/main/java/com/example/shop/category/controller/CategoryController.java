@@ -1,7 +1,7 @@
 package com.example.shop.category.controller;
 
-import com.example.shop.category.model.Category;
-import com.example.shop.category.model.CategoryproductsDto;
+import com.example.shop.common.model.Category;
+import com.example.shop.category.dto.CategoryproductsDto;
 import com.example.shop.category.service.CategoryService;
 import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;

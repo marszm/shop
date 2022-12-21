@@ -1,6 +1,6 @@
 package com.example.shop.common.repository;
 
-import com.example.shop.review.model.Review;
+import com.example.shop.common.model.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
