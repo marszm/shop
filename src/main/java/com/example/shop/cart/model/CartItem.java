@@ -2,10 +2,16 @@ package com.example.shop.cart.model;
 
 import com.example.shop.common.model.Product;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,4 +19,5 @@ public class CartItem {
     private int quantity;
     @OneToOne
     private Product product;
+    private Long cartId;
 }
