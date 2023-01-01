@@ -43,6 +43,7 @@ class CartServiceTest {
 
     @Test
     void shouldProductToCartWhenCartIdExist() {
+        //given
         Long cardId = 1L;
         CartProductDto cartProductDto = new CartProductDto(1L, 1);
         when(productRepository.findById(1L)).thenReturn(Optional.of(Product.builder().id(1L).build()));
